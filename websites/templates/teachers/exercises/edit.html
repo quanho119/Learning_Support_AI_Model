@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Exercise</title>
+</head>
+<body>
+<h2>Edit an Exercise</h2>
+
+<form action="/teachers/exercises/edit" method="post">
+    <input type="hidden" name="id" value="{{ exercise.id }}">
+    <label for="name">Exercise Name:</label>
+    <br>
+    <input type="text" id="name" name="name" value="{{ exercise.name }}" required>
+    <br>
+    <a href="/teachers/exercises/edit/{{exercise.id}}/upload/name">Use images to convert to name</a>
+    <br>
+    <label for="description">Description:</label>
+    <br>
+    <textarea id="description" name="description" required>{{ exercise.description }}</textarea>
+    <br>
+    <a href="/teachers/exercises/edit/{{exercise.id}}/upload/description">Use images to convert to description</a>
+    <br>
+    <label for="question">Question:</label>
+    <br>
+    <textarea id="question" name="question" required>{{ exercise.question }}</textarea>
+    <br>
+    <a href="/teachers/exercises/edit/{{exercise.id}}/upload/question">Use images to convert to question</a>
+    <br>
+    <input type="submit" value="Update">
+    <br>
+    <a href="/teachers/exercises">Back to list</a>
+</form>
+
+</body>
+</html>

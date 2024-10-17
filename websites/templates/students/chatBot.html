@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatAI</title>
+</head>
+<body>
+<h2>Chat Model</h2>
+<form action="/students/chatBot" method="post">
+    <label for="question" Ask a question></label>
+    <input type="text" id="question" name="question" placeholder="Enter your question here">
+    <button type="submit">Ask</button>
+</form>
+{% if response %}
+<div>
+    <h3>Bot's Response:</h3>
+    <p>{{ response }}</p>
+</div>
+{% endif %}
+</body>
+</html>

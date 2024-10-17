@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body>
+<h2>Exercise</h2>
+
+<div class="exercise-full">
+    <h3>Exercise Name:</h3>
+    <p>{{ exercise.name }}</p>
+
+    <h3>Description:</h3>
+    <p>{{ exercise.description }}</p>
+
+    <h3>Question:</h3>
+    <p>{{ exercise.question }}</p>
+</div>
+<div class="action">
+    <a href="/students/exercises">Back to list</a>
+    <a href="/students/exercises/explain/{{ exercise.id }}">Explain by AI</a>
+</div>
+{% if response %}
+<div class="answer">
+    <h3>Answer:</h3>
+    <p>{{ response }}</p>
+    <a href="/students/exercises/chatBot">Ask another question</a>
+</div>
+{% endif %}
+</body>
+</html>

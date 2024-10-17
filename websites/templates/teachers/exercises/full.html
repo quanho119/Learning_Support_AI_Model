@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise Details</title>
+</head>
+<body>
+<h2>Exercise</h2>
+
+<div class="exercise-full">
+    <h3>Exercise Name:</h3>
+    <p>{{ exercise.name }}</p>
+
+    <h3>Description:</h3>
+    <p>{{ exercise.description }}</p>
+
+    <h3>Question:</h3>
+    <p>{{ exercise.question }}</p>
+</div>
+<div class="action">
+    <a href="/teachers/exercises/edit/{{ exercise.id }}">Edit</a>
+    <br>
+    <a href="/teachers/exercises/delete/{{ exercise.id }}">Delete</a>
+    <br>
+    <a href="/teachers/exercises">Back to list</a>
+</div>
+</body>
+</html>

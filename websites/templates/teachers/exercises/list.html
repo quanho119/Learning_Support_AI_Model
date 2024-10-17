@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise List</title>
+</head>
+<body>
+<h2>List Exercises</h2>
+<a href="/teachers/exercises/add">Add New Exercise</a>
+<a href="/teachers/">Students</a> 
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for exercise in exercises %}
+    <tr>
+        <td>{{ exercise.name }}</td>
+        <td>{{ exercise.description }}</td>
+        <td><a href="/teachers/exercises/full/{{exercise.id}}">See full</a></td>
+        <td><a href="/teachers/exercises/delete/{{exercise.id}}">Delete</a></td>
+        <td><a href="/teachers/exercises/edit/{{exercise.id}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

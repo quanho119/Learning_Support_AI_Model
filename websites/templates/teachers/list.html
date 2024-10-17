@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<h2>List students</h2>
+<a href="/teachers/add">Add new a student</a>
+<a href="/teachers/exercises">Exercise</a>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td><a href="/teachers/delete/{{student.id}}">Delete</a></td>
+        <td><a href="/teachers/edit/{{student.id}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
