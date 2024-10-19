@@ -2,31 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<h2>Exercise</h2>
+<body class="container mt-5">
+    <h2 class="text-center">Exercise Details</h2>
 
-<div class="exercise-full">
-    <h3>Exercise Name:</h3>
-    <p>{{ exercise.name }}</p>
+    <div class="exercise-full border p-4 rounded shadow-sm">
+        <h3>Exercise Name:</h3>
+        <p class="font-weight-bold">{{ exercise.name }}</p>
 
-    <h3>Description:</h3>
-    <p>{{ exercise.description }}</p>
+        <h3>Description:</h3>
+        <p>{{ exercise.description }}</p>
 
-    <h3>Question:</h3>
-    <p>{{ exercise.question }}</p>
-</div>
-<div class="action">
-    <a href="/students/exercises">Back to list</a>
-    <a href="/students/exercises/explain/{{ exercise.id }}">Explain by AI</a>
-</div>
-{% if response %}
-<div class="answer">
-    <h3>Answer:</h3>
-    <p>{{ response }}</p>
-    <a href="/students/exercises/chatBot">Ask another question</a>
-</div>
-{% endif %}
+        <h3>Question:</h3>
+        <p>{{ exercise.question }}</p>
+    </div>
+
+    <div class="action mt-4">
+        <a href="/students/exercises" class="btn btn-secondary mr-2">Back to List</a>
+        <a href="/students/exercises/explain/{{ exercise.id }}" class="btn btn-info">Explain by AI</a>
+    </div>
+
+    {% if response %}
+    <div class="answer mt-4 border p-3 bg-light">
+        <h3>Answer:</h3>
+        <p class="alert alert-success">{{ response }}</p>
+        <a href="/students/chatBot" class="btn btn-primary">Ask another question</a>
+    </div>
+    {% endif %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import os
 
 from flask import Blueprint, render_template, redirect, url_for, request, current_app
-from werkzeug.utils import secure_filename
+
 
 from websites.entities.Excercise import Exercise
 from websites.models.ExcerciseModel import exercises

@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatAI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<h2>Chat Model</h2>
-<form action="/students/chatBot" method="post">
-    <label for="question" Ask a question></label>
-    <input type="text" id="question" name="question" placeholder="Enter your question here">
-    <button type="submit">Ask</button>
-</form>
-{% if response %}
-<div>
-    <h3>Bot's Response:</h3>
-    <p>{{ response }}</p>
-</div>
-{% endif %}
+<body class="container mt-5">
+    <h2 class="text-center">Chat Model</h2>
+    <form action="/students/chatBot" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="question">Ask a question:</label>
+            <input type="text" id="question" name="question" class="form-control" placeholder="Enter your question here" value="{{ question }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ask</button>
+        <a href="/students/" class="btn btn-secondary ml-2">Home</a>
+    </form>
+
+    {% if response %}
+    <div class="mt-4">
+        <h3>Bot's Response:</h3>
+        <p class="alert alert-info">{{ response }}</p>
+
+    </div>
+    {% endif %}
+
+    <!-- Bootstrap JS and dependencies (optional but recommended for interactive components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
