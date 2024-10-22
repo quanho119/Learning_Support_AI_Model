@@ -23,13 +23,24 @@
 
     <div class="action mt-4">
         <a href="/students/exercises" class="btn btn-secondary mr-2">Back to List</a>
-        <a href="/students/exercises/explain/{{ exercise.id }}" class="btn btn-info">Explain by AI</a>
+        <a href="/students/exercises/explain/{{ exercise.id }}" class="btn btn-info" id="explainButton">Explain by AI</a>
+    </div>
+
+    <!-- Form for user answer -->
+    <div class="answer-form mt-4 border p-3 bg-light">
+        <h3>Your Answer:</h3>
+        <form action="/students/exercises/submit/{{ exercise.id }}" method="POST" id="answerForm">
+            <div class="form-group">
+                <input type="text" class="form-control" name="user_answer" placeholder="Type your answer here..." value="{{ user_answer if user_answer is not none else '' }}">
+            </div>
+            <button type="submit" class="btn btn-success">Submit Answer</button>
+        </form>
     </div>
 
     {% if response %}
     <div class="answer mt-4 border p-3 bg-light">
-        <h3>Answer:</h3>
-        <p class="alert alert-success">{{ response }}</p>
+        <h3>AI Response:</h3>
+        <p class="alert alert-success" id="response">{{ response }}</p>
         <a href="/students/chatBot" class="btn btn-primary">Ask another question</a>
     </div>
     {% endif %}
@@ -38,5 +49,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/students/chatbot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/students/exercises/full.js') }}"></script>
 </body>
 </html>

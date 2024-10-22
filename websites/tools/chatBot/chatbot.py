@@ -27,3 +27,8 @@ class ChatBotAi():
         prompt = "print all text of this image"
         response = Box.chat.send_message([prompt, file])
         return response.text
+
+    def submit(answer, prompt):
+        response = Box.chat.send_message(
+            "Submit this: " + prompt + " with answer: " + answer + ". If correct, print Correct answer. Else print Wrong answer.")
+        return response.text
